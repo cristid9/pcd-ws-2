@@ -24,6 +24,9 @@ function connect() {
     });
 }
 
+
+
+
 function disconnect() {
     if (stompClient !== null) {
         stompClient.disconnect();
@@ -37,8 +40,6 @@ function sendName() {
 }
 
 function showGreeting(message) {
-    // $("#greetings").append("<tr><td>" + message + "</td></tr>");
-
     for (var i = 1; i < message.length; ++i) {
         $("#greetings").append("<tr>");
         $("#greetings").append("<tr><td>" + message[i]["eventName"] + "</td></tr>");
@@ -52,7 +53,10 @@ $(function () {
         e.preventDefault();
     });
     $( "#connect" ).click(function() { connect(); });
-    $( "#disconnect" ).click(function() { disconnect(); });
+    $( "#disconnect" ).click(function() {
+        disconnect();
+
+    });
     $( "#send" ).click(function() { sendName(); });
 });
 
